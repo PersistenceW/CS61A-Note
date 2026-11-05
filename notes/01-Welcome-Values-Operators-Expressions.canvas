@@ -1,0 +1,336 @@
+{
+  "nodes": [
+    {
+      "id": "f276efa868e7f452",
+      "type": "text",
+      "x": 1170,
+      "y": 55,
+      "width": 820,
+      "height": 205,
+      "text": "# 表达式如何求值？\n\nValues, Operators, and Expressions\n第20–25页：从表达式到值\n\n[[slides/01-Welcome.pdf#page=20|查看原始幻灯片（第20页起）]]",
+      "color": "#173654"
+    },
+    {
+      "id": "1ad6b59a0ec0ce62",
+      "type": "text",
+      "x": 80,
+      "y": 355,
+      "width": 700,
+      "height": 155,
+      "text": "## ① 表达式与值\n\n表达式描述一项计算；求值后得到一个值。",
+      "color": "#1675C5"
+    },
+    {
+      "id": "30dd6a69ee878a7b",
+      "type": "text",
+      "x": 80,
+      "y": 580,
+      "width": 700,
+      "height": 260,
+      "text": "**核心定义**\n\n表达式（expression）描述如何计算。\n值（value）是求值的结果。",
+      "color": "#1675C5"
+    },
+    {
+      "id": "b7dc8df0b33123f2",
+      "type": "text",
+      "x": 80,
+      "y": 890,
+      "width": 700,
+      "height": 260,
+      "text": "**常见形式**\n\n2：数值 / 字面量\n25 + 3：算术表达式\npi：名称\n'are you human'：字符串",
+      "color": "#1675C5"
+    },
+    {
+      "id": "146f769c2ce859aa",
+      "type": "text",
+      "x": 80,
+      "y": 1200,
+      "width": 700,
+      "height": 260,
+      "text": "**组合关系**\n\n调用表达式中的 operator（如 add）\n与各个 operand 都是表达式。\n大表达式可包含更小的子表达式。",
+      "color": "#1675C5"
+    },
+    {
+      "id": "6b8edb05ae994d62",
+      "type": "text",
+      "x": 840,
+      "y": 355,
+      "width": 700,
+      "height": 155,
+      "text": "## ② 调用表达式\n\n用 operator(operands...) 表达函数调用。",
+      "color": "#138A81"
+    },
+    {
+      "id": "7ec66f25fe966f3a",
+      "type": "text",
+      "x": 840,
+      "y": 580,
+      "width": 700,
+      "height": 260,
+      "text": "**通用结构**\n\noperator(operand_1, operand_2, ...)\noperator 求值为函数；\n每个 operand 求值后成为参数值。",
+      "color": "#138A81"
+    },
+    {
+      "id": "d411d4a9488e6e74",
+      "type": "text",
+      "x": 840,
+      "y": 890,
+      "width": 700,
+      "height": 260,
+      "text": "**拆解示例**\n\nadd(1 + 1, 3)\noperator：add\noperands：1 + 1、3",
+      "color": "#138A81"
+    },
+    {
+      "id": "2ccb8d67e66237b6",
+      "type": "text",
+      "x": 840,
+      "y": 1200,
+      "width": 700,
+      "height": 260,
+      "text": "**课程中的表达方式**\n\n第22页说明：表达式可以写成调用表达式，\n并配合课堂演示。",
+      "color": "#138A81"
+    },
+    {
+      "id": "5105a32ce29a14d0",
+      "type": "text",
+      "x": 1600,
+      "y": 355,
+      "width": 700,
+      "height": 155,
+      "text": "## ③ 求值三步\n\n函数与参数都先由表达式求值而来。",
+      "color": "#C58216"
+    },
+    {
+      "id": "e94b89fa2e5b01ac",
+      "type": "text",
+      "x": 1600,
+      "y": 580,
+      "width": 700,
+      "height": 260,
+      "text": "**1｜求值运算符**\n\n先计算 operator 表达式，得到函数。\n例：add → 函数 add",
+      "color": "#C58216"
+    },
+    {
+      "id": "c8961e4e27c2685b",
+      "type": "text",
+      "x": 1600,
+      "y": 890,
+      "width": 700,
+      "height": 260,
+      "text": "**2｜求值操作数**\n\n分别计算每个 operand，得到参数值。\n例：1 + 1 → 2；3 → 3",
+      "color": "#C58216"
+    },
+    {
+      "id": "2f40bba5423a8f7c",
+      "type": "text",
+      "x": 1600,
+      "y": 1200,
+      "width": 700,
+      "height": 260,
+      "text": "**3｜应用函数**\n\n把函数应用到参数值。\n例：add(1 + 1, 3) → add(2, 3) → 5",
+      "color": "#C58216"
+    },
+    {
+      "id": "470aa0f028006e0b",
+      "type": "text",
+      "x": 2360,
+      "y": 355,
+      "width": 700,
+      "height": 155,
+      "text": "## ④ 嵌套表达式与树\n\n对子表达式递归执行同一求值规则。",
+      "color": "#7959B8"
+    },
+    {
+      "id": "318c9b09d4176d90",
+      "type": "text",
+      "x": 2360,
+      "y": 580,
+      "width": 700,
+      "height": 260,
+      "text": "**完整例子**\n\nmul(add(4, mul(4, 6)),\n    add(3, 5)) = 224",
+      "color": "#7959B8"
+    },
+    {
+      "id": "bc77b538da98e691",
+      "type": "text",
+      "x": 2360,
+      "y": 890,
+      "width": 700,
+      "height": 260,
+      "text": "**由内向外求值**\n\nmul(4, 6) = 24\nadd(4, 24) = 28\nadd(3, 5) = 8\nmul(28, 8) = 224",
+      "color": "#7959B8"
+    },
+    {
+      "id": "079c1e33561d18cf",
+      "type": "text",
+      "x": 2360,
+      "y": 1200,
+      "width": 700,
+      "height": 260,
+      "text": "**表达式树**\n\n子表达式的值成为外层调用的参数。\n树根的值 224 是整个表达式的值。",
+      "color": "#7959B8"
+    }
+  ],
+  "edges": [
+    {
+      "id": "16b044b24f162e84",
+      "fromNode": "f276efa868e7f452",
+      "fromSide": "bottom",
+      "toNode": "1ad6b59a0ec0ce62",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#1675C5"
+    },
+    {
+      "id": "a0bde79fb717032d",
+      "fromNode": "1ad6b59a0ec0ce62",
+      "fromSide": "bottom",
+      "toNode": "30dd6a69ee878a7b",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#1675C5"
+    },
+    {
+      "id": "a0fd7b4a94fce712",
+      "fromNode": "1ad6b59a0ec0ce62",
+      "fromSide": "bottom",
+      "toNode": "b7dc8df0b33123f2",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#1675C5"
+    },
+    {
+      "id": "c8eaa044ac33b836",
+      "fromNode": "1ad6b59a0ec0ce62",
+      "fromSide": "bottom",
+      "toNode": "146f769c2ce859aa",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#1675C5"
+    },
+    {
+      "id": "73e24cf9eb8d79d8",
+      "fromNode": "f276efa868e7f452",
+      "fromSide": "bottom",
+      "toNode": "6b8edb05ae994d62",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#138A81"
+    },
+    {
+      "id": "e42ca63a29119b41",
+      "fromNode": "6b8edb05ae994d62",
+      "fromSide": "bottom",
+      "toNode": "7ec66f25fe966f3a",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#138A81"
+    },
+    {
+      "id": "e1411d3d9cfb35db",
+      "fromNode": "6b8edb05ae994d62",
+      "fromSide": "bottom",
+      "toNode": "d411d4a9488e6e74",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#138A81"
+    },
+    {
+      "id": "6b64932cde00ba6d",
+      "fromNode": "6b8edb05ae994d62",
+      "fromSide": "bottom",
+      "toNode": "2ccb8d67e66237b6",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#138A81"
+    },
+    {
+      "id": "6b7e50972195449b",
+      "fromNode": "f276efa868e7f452",
+      "fromSide": "bottom",
+      "toNode": "5105a32ce29a14d0",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#C58216"
+    },
+    {
+      "id": "a5016f2e783f0348",
+      "fromNode": "5105a32ce29a14d0",
+      "fromSide": "bottom",
+      "toNode": "e94b89fa2e5b01ac",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#C58216"
+    },
+    {
+      "id": "da5917f7bc172469",
+      "fromNode": "5105a32ce29a14d0",
+      "fromSide": "bottom",
+      "toNode": "c8961e4e27c2685b",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#C58216"
+    },
+    {
+      "id": "be6e1a6ac5dc2754",
+      "fromNode": "5105a32ce29a14d0",
+      "fromSide": "bottom",
+      "toNode": "2f40bba5423a8f7c",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#C58216"
+    },
+    {
+      "id": "006a0d2683b28709",
+      "fromNode": "f276efa868e7f452",
+      "fromSide": "bottom",
+      "toNode": "470aa0f028006e0b",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#7959B8"
+    },
+    {
+      "id": "30f0e3f87b40ea48",
+      "fromNode": "470aa0f028006e0b",
+      "fromSide": "bottom",
+      "toNode": "318c9b09d4176d90",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#7959B8"
+    },
+    {
+      "id": "2302c653197b6fd4",
+      "fromNode": "470aa0f028006e0b",
+      "fromSide": "bottom",
+      "toNode": "bc77b538da98e691",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#7959B8"
+    },
+    {
+      "id": "be304c0a709d2121",
+      "fromNode": "470aa0f028006e0b",
+      "fromSide": "bottom",
+      "toNode": "079c1e33561d18cf",
+      "toSide": "top",
+      "fromEnd": "none",
+      "toEnd": "none",
+      "color": "#7959B8"
+    }
+  ]
+}
